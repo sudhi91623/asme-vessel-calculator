@@ -5,7 +5,7 @@ def get_material_properties(material, temperature):
     Lookup allowable stress from materials.csv for a given material and temperature.
     """
     try:
-        df = pd.read_csv("data/materials.csv")
+        df = pd.read_csv("materials.csv")  # NOTE: No longer inside 'data/' folder
         row = df[(df["Material"] == material) & (df["Temp_C"] == int(temperature))]
         if not row.empty:
             return float(row["Allowable_Stress_MPa"].values[0])
