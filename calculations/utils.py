@@ -6,8 +6,8 @@ def get_material_properties(material, temperature):
     """
     try:
         df = pd.read_csv("data/materials.csv")
-        row = df[(df["Material"] == material) & (df["Temp_C"] == temperature)]
-        if not row.empty:
+        row = df[(df["Material"] == material) & (df["Temp_C"] == int(temperature))]
+if not row.empty:
             return float(row["Allowable_Stress_MPa"].values[0])
     except Exception as e:
         print(f"Error reading material properties: {e}")
